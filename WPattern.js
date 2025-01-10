@@ -1,23 +1,26 @@
-function printWPattern(N) {
-    if (N === 1) {
-        console.log("\\/\\/");
-        return;
+function printPattern(N) {
+    function printStars() {
+        let row = '';
+        for (let i = 0; i < N; i++) {
+            row += '* ';
+        }
+        console.log(row.trim());
     }
 
-    for (let i = 0; i < N; i++) {
-        let line = "";
-
-        for (let j = 0; j < 2 * N - 1; j++) {
-            
-            if (j === i || j === 2 * N - 2 - i) {
-                line += "/";  
-            } else {
-                line += " ";  
-            }
+    function printMiddle() {
+        for (let j = 0; j < N - 2; j++) {
+            console.log('*');
         }
+    }
 
-        console.log(line);
+    printStars();
+
+    printMiddle();
+
+    if (N > 1) {
+        printStars();
     }
 }
-let N = 1;  
-printWPattern(N);
+
+printPattern(5);
+
